@@ -1,0 +1,11 @@
+image: alpine/edge
+secrets:
+  - 698d84f0-0fcd-4c20-83ea-203255fbc324
+sources:
+  - git+ssh://git@git.sr.ht/~thepuzzlemaker/KSP-AlphaPatch
+tasks:
+  - mirror: |
+      cd KSP-AlphaPatch
+      git remote add github git@github.com:ThePuzzlemaker/KSP-AlphaPatch.git
+      ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+      git push --all github
