@@ -32,7 +32,7 @@ namespace AlphaPatch
         static AccessTools.FieldRef<UrlDir, List<UrlFile>> _files = AccessTools.FieldRefAccess<UrlDir, List<UrlFile>>("_files");
         static AccessTools.FieldRef<UrlDir, List<UrlDir>> _children = AccessTools.FieldRefAccess<UrlDir, List<UrlDir>>("_children");
         
-        static void Postfix(UrlDir __instance, ConfigDirectory[] dirConfig, ConfigFileType[] fileConfig)
+        static bool Postfix(UrlDir __instance, ConfigDirectory[] dirConfig, ConfigFileType[] fileConfig)
         {
             _files(__instance).Sort(delegate (UrlFile a, UrlFile b)
             {
@@ -41,7 +41,8 @@ namespace AlphaPatch
             _children(__instance).Sort(delegate (UrlDir a, UrlDir b)
             {
                 return a.name.CompareTo(b.name);
-            });            
+            });  
+	    return true;
         }
     }
 
@@ -52,7 +53,7 @@ namespace AlphaPatch
         static AccessTools.FieldRef<UrlDir, List<UrlFile>> _files = AccessTools.FieldRefAccess<UrlDir, List<UrlFile>>("_files");
         static AccessTools.FieldRef<UrlDir, List<UrlDir>> _children = AccessTools.FieldRefAccess<UrlDir, List<UrlDir>>("_children");
 
-        static void Postfix(UrlDir __instance, UrlDir parent, DirectoryInfo info)
+        static bool Postfix(UrlDir __instance, UrlDir parent, DirectoryInfo info)
         {
             _files(__instance).Sort(delegate (UrlFile a, UrlFile b)
             {
@@ -62,6 +63,7 @@ namespace AlphaPatch
             {
                 return a.name.CompareTo(b.name);
             });
+	    return true;
         }
     }
 
@@ -72,7 +74,7 @@ namespace AlphaPatch
         static AccessTools.FieldRef<UrlDir, List<UrlFile>> _files = AccessTools.FieldRefAccess<UrlDir, List<UrlFile>>("_files");
         static AccessTools.FieldRef<UrlDir, List<UrlDir>> _children = AccessTools.FieldRefAccess<UrlDir, List<UrlDir>>("_children");
 
-        static void Postfix(UrlDir __instance, UrlIdentifier id, int index, ref UrlDir __result)
+        static bool Postfix(UrlDir __instance, UrlIdentifier id, int index, ref UrlDir __result)
         {
             if (__result != null)
             {
@@ -85,6 +87,7 @@ namespace AlphaPatch
                     return a.name.CompareTo(b.name);
                 });
             }
+	    return true;
         }
     }
 }
