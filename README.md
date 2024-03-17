@@ -2,6 +2,11 @@
 
 This patch fixes out-of-order loading of assemblies and config files, causing issues with ModuleManager. This fix creates the proper behaviour on all filesystems, including those that do not alphabetically sort directory listings, such as BTRFS and FAT32.
 
+Please submit [issues][iss] and [patches][patch] through [SourceHut](https://sr.ht/~thepuzzlemaker/KSP-AlphaPatch).
+
+[iss]: https://todo.sr.ht/~thepuzzlemaker/KSP-AlphaPatch
+[patch]: https://lists.sr.ht/~thepuzzlemaker/misc-projects
+
 # Installation
 
 1. Download [BepInEx v5.4.22](https://github.com/BepInEx/BepInEx/releases/tag/v5.4.22) from its GitHub page. Extract into the KSP directory. Ensure that `winhttp.dll` is replaced.
