@@ -8,4 +8,4 @@ tasks:
       cd KSP-AlphaPatch
       git remote add github git@github.com:ThePuzzlemaker/KSP-AlphaPatch.git
       ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-      git push --all github --follow-tags
+      git push --all github --follow-tags --force
